@@ -65,10 +65,11 @@ def filterCardsByExcludingCardsNeededByPlayer(cardsJsonArray,cardsList): #Might 
 #Input is cardJsonArray
 #Output is cardsNameList	
 def getCardsNamesFromcardJsonArray(cardJsonArray):
-	resultList=[]
-	for i in cardJsonArray:
-		resultList.append(i['name'])
-	return resultList
+	return map(lambda i : i['name'],cardJsonArray)
+	# resultList=[]
+	# for i in cardJsonArray:
+	# 	resultList.append(i['name'])
+	# return resultList
 	
 	
 #Inputs are playerTag and the list of cards names
@@ -89,12 +90,13 @@ def saveCardsWhichAreDonatableByParticularPlayer(playerTag,cardsNamesList):
 #Output is a filtered list of Jsons as an array
 #Filtering is based on rarity
 def filterCardsBasedOnRarity(cardsJsonArray,rarity):
-	resultArray=[]
-	for i in cardsJsonArray:
-		if i['rarity']==rarity:
-			print i['name']
-			resultArray.append(i)
-	return resultArray
+	return filter(lambda i : i['rarity'] == rarity,cardsJsonArray)
+	# resultArray=[]
+	# for i in cardsJsonArray:
+	# 	if i['rarity']==rarity:
+	# 		print i['name']
+	# 		resultArray.append(i)
+	# return resultArray
 
 
 #Return a string list of names of all cards in clash royale	
